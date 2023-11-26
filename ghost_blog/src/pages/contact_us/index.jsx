@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Blog() {
+export default function contactUs() {
   return (
     <div className="bg-black text-white h-screen flex items-center justify-center">
-      <h1 className="text-4xl font-bold">This is the Blog page</h1>
+      <h1 className="text-4xl font-bold">This is the Contact us page</h1>
     </div>
   )
 }
