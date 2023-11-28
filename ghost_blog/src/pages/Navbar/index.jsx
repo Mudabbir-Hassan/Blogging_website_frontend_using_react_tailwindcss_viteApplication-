@@ -1,57 +1,73 @@
-import React from 'react'
-import { NavLink, Outlet  } from "react-router-dom";
+import React from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
 
-export default function navBar() {
+const NavBar = () => {
   return (
     <>
-    <nav className="bg-black text-white p-4 flex justify-between items-center">
-      {/* Logo */}
-      
-      <NavLink to="/">
-      <div className="flex items-center">
-        <img
-          src="../../assets/Logo.jpg"         
-           alt="Logo"
-          className="w-12 h-12 mr-2"
-        />
-        <span className="font-semibold text-lg">GHOST</span>
-      </div>
-      </NavLink>
-
-      {/* Menu Items */}
-      <ul className="flex space-x-4">
-      
-        <li className="hover:text-gray-300 transition duration-300">
+      <nav className="bg-black text-white p-4 flex flex-col md:flex-row justify-between items-center">
+        {/* Logo */}
         <NavLink to="/">
-          Home
-          </NavLink>
-        </li>
-        <li className="hover:text-gray-300 transition duration-300">
-        <NavLink to="service">Services</NavLink>
-        </li>
-        <li className="hover:text-gray-300 transition duration-300">
-        <NavLink to="about">About</NavLink>
-        </li>
-        <li className="hover:text-gray-300 transition duration-300">
-        <NavLink to="blog">Blog</NavLink>
-        </li>
-        <li className="hover:text-gray-300 transition duration-300">
-        <NavLink to="contact-us">Contact Us</NavLink>
-        </li>
-      </ul>
+          <div className="flex items-center">
+            <img
+              src="../../assets/Logo.jpg"
+              alt="Logo"
+              className="w-12 h-12 mr-2"
+            />
+            <span className="font-semibold text-lg">GHOST</span>
+          </div>
+        </NavLink>
 
-      <div>
-        <span className="hover:text-blue-300 transition duration-300">
-        <NavLink to="/log-in">Login</NavLink>
+        {/* Menu Icon (Visible on small screens) */}
+        <button className="md:hidden text-white">
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+
+        {/* Menu Items (Hidden on small screens) */}
+        <ul className="hidden md:flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+          <li className="hover:text-gray-300 transition duration-300">
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li className="hover:text-gray-300 transition duration-300">
+            <NavLink to="/service">Services</NavLink>
+          </li>
+          <li className="hover:text-gray-300 transition duration-300">
+            <NavLink to="/about">About</NavLink>
+          </li>
+          <li className="hover:text-gray-300 transition duration-300">
+            <NavLink to="/blog">Blog</NavLink>
+          </li>
+          <li className="hover:text-gray-300 transition duration-300">
+            <NavLink to="/contact-us">Contact Us</NavLink>
+          </li>
+        </ul>
+
+        {/* Login/Logout (Hidden on small screens) */}
+        <div className="mt-4 md:mt-0 hidden md:block">
+          <span className="hover:text-blue-300 transition duration-300">
+            <NavLink to="log-in">Login</NavLink>
           </span>
-        <span className="mx-2">|</span>
-        <span className="hover:text-red-500 transition duration-300">
-        <NavLink to="/">Logout</NavLink>
-        </span>
-      </div>
-      
-    </nav>
-     <Outlet />
-     </>
-  )
-}
+          <span className="mx-2">|</span>
+          <span className="hover:text-red-500 transition duration-300">
+            <NavLink to="/">Logout</NavLink>
+          </span>
+        </div>
+      </nav>
+      <Outlet />
+    </>
+  );
+};
+
+export default NavBar;
