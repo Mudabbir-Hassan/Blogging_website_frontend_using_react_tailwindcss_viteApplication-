@@ -21,9 +21,9 @@ export default function MyRoutes() {
           <Route path='blog' element={<Blog />} />
           <Route path='contact-us' element={<Contact />} />
         </Route>
-        <Route path='log-in' component={<Login />} />
-        <Route path='sign-up' component={<Signup />} />
-        <Route path='errorpage' component={<Errorpage />} />
+        <Route path='log-in' element={<Login />} />
+        <Route path='sign-up' element={<Signup />} />
+        <Route path='errorpage' element={<Errorpage />} />
       </Routes>
     </div>
   );
