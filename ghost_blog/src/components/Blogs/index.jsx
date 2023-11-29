@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-
 // Assuming there are 9 items per page
 const ITEMS_PER_PAGE = 9;
 
-export default function Blog () {
+export default function Blogs () {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,9 +19,12 @@ export default function Blog () {
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures the effect runs once when the component mounts
+  }, []); 
 
-  // Calculate the range of items to display on the current page
+  
+
+
+
   const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
   const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
@@ -31,14 +34,6 @@ export default function Blog () {
 
   return (
     <>
-      <div className="px-4 py-32 bg-black text-white flex items-center justify-center">
-        <h1 className="text-4xl font-bold">This is the Blog page</h1>
-      </div>
-
-      <div className="px-2 py-2 text-black flex items-center justify-center">
-        <button className='p-2 bg-orange-500 '>Create Post + </button>
-      </div>
-
       <div className="container mx-auto mt-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {currentItems.map(item => (
