@@ -22,7 +22,6 @@ export default function MyRoutes() {
         
         <Route path="/" element={<NavBar />}>
           <Route index element={<Home />} />
-          <Route path="service" element={<Service />} />
           <Route path="about" element={<About />} />
 
           <Route path="blog" element={<Blog />}>

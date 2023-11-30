@@ -50,9 +50,6 @@ const NavBar = () => {
             <NavLink to="/" onClick={toggleMenu}>Home</NavLink>
           </li>
           <li className="hover:text-gray-300 transition duration-300">
-            <NavLink to="/service" onClick={toggleMenu}>Services</NavLink>
-          </li>
-          <li className="hover:text-gray-300 transition duration-300">
             <NavLink to="/about" onClick={toggleMenu}>About</NavLink>
           </li>
           <li className="hover:text-gray-300 transition duration-300">
