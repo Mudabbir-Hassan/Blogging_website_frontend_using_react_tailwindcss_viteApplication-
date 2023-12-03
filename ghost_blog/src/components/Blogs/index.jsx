@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-// Assuming there are 9 items per page
+import { motion } from "framer-motion";
+import { NavLink } from 'react-router-dom';
+
 const ITEMS_PER_PAGE = 9;
 
 export default function Blogs () {
@@ -33,11 +35,20 @@ export default function Blogs () {
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
-    <>
+    <div
+      className="relative flex items-center justify-center"
+      style={{
+        backgroundImage: 'url("../../assets/aboutUs.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        filter: 'brightness(0.9)',
+      }}
+    >
       <div className="container mx-auto mt-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {currentItems.map(item => (
-            <div
+            <NavLink to={`blogs/${item.id}`}>
+            <div 
               key={item.id}
               className="bg-white rounded-lg overflow-hidden shadow-md transform transition-transform hover:scale-105 hover:shadow-lg"
             >
@@ -51,6 +62,7 @@ export default function Blogs () {
                 <p className="text-gray-700">{item.description}</p>
               </div>
             </div>
+            </NavLink>
           ))}
         </div>
 
@@ -69,6 +81,6 @@ export default function Blogs () {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };

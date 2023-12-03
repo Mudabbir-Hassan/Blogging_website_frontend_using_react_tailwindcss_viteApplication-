@@ -71,7 +71,6 @@ const NavBar = () => {
           </span>
         </div>
       </nav>
-      <Outlet />
     </>
   );
 };

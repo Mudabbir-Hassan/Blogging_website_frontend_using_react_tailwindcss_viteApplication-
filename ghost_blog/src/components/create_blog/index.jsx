@@ -11,7 +11,16 @@ export default function index() {
   }
 
   return (
-    <div className="flex  justify-center bg-black bg-opacity-90 h-screen">
+    <div
+      className="relative h-screen flex items-center justify-center"
+      style={{
+        backgroundImage: 'url("../../assets/createBlog.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        filter: 'brightness(0.9)',
+      }}
+    >
+    <div className="flex  justify-center h-screen">
       <div className="w-full max-w-md p-6 rounded-md">
         <div className="mb-8">
           <label className="block text-lg font-semibold text-white mb-2">
@@ -27,8 +36,8 @@ export default function index() {
 
         <div className="mb-8">
   <h2 className="text-lg font-semibold text-white mb-2">Add Image:</h2>
-  <label className="flex items-center justify-center w-full h-12 px-4 bg-gray-800 text-white rounded-md cursor-pointer">
-    <span className="mr-2">Choose a file</span>
+  <label className="flex items-center justify-center w-full h-12 px-4 bg-black bg-opacity-20 text-white rounded-md cursor-pointer transition-all  hover:bg-white hover:text-black hover:font-semibold">
+    <span className="mr-2 ">Choose a file</span>
     <input
       type="file"
       className="hidden"
@@ -52,9 +61,10 @@ export default function index() {
           />
         </div>
         <div className="mt-3 flex justify-center">
-        <button className='font-sans font-semibold px-4 py-1 bg-orange-500 rounded-xl transition-all hover:scale-105 hover:bg-blue-400'>Post  </button>
+        <button className='flex items-center justify-center w-full h-12 px-4 bg-black bg-opacity-20 text-white rounded-md cursor-pointer transition-all hover:bg-white hover:text-black hover:font-semibold'>Post  </button>
         </div>
       </div>
+    </div>
     </div>
   );
 }

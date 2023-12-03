@@ -26,8 +26,8 @@ const SignUp = () => {
   });
 
   return (
-    <div className="min-h-screen flex items-center flex-col justify-center bg-black">
-      <div className="w-full max-w-md p-6 bg-gray-800 rounded-md">
+    <div className="min-h-screen flex items-center flex-col justify-center bg-red-950">
+      <div className="w-full max-w-md p-6 bg-black rounded-md">
         <h2 className="text-3xl font-extrabold text-white text-center">Sign Up</h2>
         <form className="mt-8 space-y-6" onSubmit={formik.handleSubmit}>
           <div className="rounded-md shadow-sm -space-y-px">
@@ -61,7 +61,7 @@ const SignUp = () => {
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-700 placeholder-gray-400 text-white focus:outline-none rounded-md focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none relative block w-full px-3 py-2 border border-gray-700 placeholder-gray-400 text-white focus:outline-none rounded-md focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
               />
             </div>
