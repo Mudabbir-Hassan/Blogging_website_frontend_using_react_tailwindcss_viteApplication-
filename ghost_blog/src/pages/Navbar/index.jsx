@@ -19,7 +19,7 @@ const NavBar = () => {
               alt="Logo"
               className="w-12 h-12 mr-2"
             />
-            <span className="font-semibold text-lg">GHOSTING</span>
+            <span className="font-Roboto font-semibold text-lg">GHOSTING</span>
           </div>
         </NavLink>
 

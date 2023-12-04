@@ -19,8 +19,11 @@ const About = () => {
       exit={{ x: window.innerWidth, transition:{duration:0.1}}}
     >
       <div className=" min-h-screen text-center">
-        {/* Content Container */}
-        <div className="container mx-auto py-12">
+        <motion.div className="container mx-auto py-12"
+        initial={{ y: -100, transition:{duration:1} }}
+        animate={{ y: 0, transition:{duration:1} }}
+        exit={{ y: -100, transition:{duration:0.2}}}
+        >
           <h1 className="text-4xl font-bold mb-6 text-white">About Us</h1>
           <p className="text-lg text-white mb-7">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
@@ -47,8 +50,8 @@ const About = () => {
           initial={{ opacity: 0, y: -100 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -100 }}
-          transition={{ duration: 2 }}>
-            <motion.div className="bg-red-950 opacity-90 p-6 rounded-lg shadow-md flex flex-col justify-center bg-opacity-70 mb-4 transition-all transform hover:scale-110">
+          transition={{ duration: 3 }}>
+            <div className="bg-red-950 opacity-90 p-6 rounded-lg shadow-md flex flex-col justify-center bg-opacity-70 mb-4 transition-all transform hover:scale-110">
               <img
                 src="../../assets/mudabbir.jpg"
                 alt="Team Member 1"
@@ -56,7 +59,7 @@ const About = () => {
               />
               <h3 className=" text-xl font-semibold mb-2">Mudabbir Hassan</h3>
               <p>FullStack Developer</p>
-            </motion.div>
+            </div>
 
             <div className="bg-red-950 opacity-90 p-6 rounded-lg shadow-md flex flex-col justify-center bg-opacity-70 mb-4 transition-all hover:scale-110">
               <img
@@ -88,7 +91,7 @@ const About = () => {
               <p>BackEnd Developer</p>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );
