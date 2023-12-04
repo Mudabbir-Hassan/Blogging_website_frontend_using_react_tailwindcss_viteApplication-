@@ -1,36 +1,56 @@
 // Login.js
-import React from 'react';
-import { useFormik } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
+import {motion} from "framer-motion";
 
 const Login = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
-  const handleSignUp =() =>{
-    navigate('/sign-up');
-  }
+  const handleSignUp = () => {
+    navigate("/sign-up");
+  };
 
   const handleBack = () => {
-    navigate('/');
+    navigate("/");
   };
 
   const formik = useFormik({
     initialValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
-    onSubmit: values => {
-      console.log('Form submitted with values:', values);
+    onSubmit: (values) => {
+      console.log("Form submitted with values:", values);
     },
   });
 
   return (
-    <div className="min-h-screen flex items-center flex-col justify-center bg-red-950">
-      <div className="w-full max-w-md p-6 bg-black rounded-md">
-        <h2 className="text-3xl font-extrabold text-white text-center">Login</h2>
+    <motion.div
+      className="relative h-screen flex items-center justify-center"
+      style={{
+        backgroundImage: 'url("../../assets/login2.jpg")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        filter: "brightness(0.9)",
+      }}
+      initial={{width:0}}
+      animate={{width:"100%"}}
+      exit={{ x: window.innerWidth, transition:{duration:0.1}}}
+    >
+    <div className="min-h-screen flex items-center flex-col justify-center">
+      <motion.div 
+      className="w-full max-w-md p-16 rounded-md text-center"
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -100 }}
+      transition={{ duration: 0.5 }}
+      >
+        <h2 className="text-3xl font-extrabold text-white text-center">
+          Login
+        </h2>
         <form className="mt-8 space-y-6" onSubmit={formik.handleSubmit}>
           <div className="rounded-md shadow-sm -space-y-px">
-
             <div>
               <label htmlFor="email" className="sr-only">
                 Email
@@ -44,7 +64,7 @@ const Login = () => {
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-700 placeholder-gray-400 text-white rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-700 placeholder-gray-400 text-black rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
               />
             </div>
@@ -62,13 +82,11 @@ const Login = () => {
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-700 placeholder-gray-400 text-white rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-700 placeholder-gray-400 text-black rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
               />
             </div>
           </div>
-
-          {/* Submit button */}
           <div>
             <button
               type="submit"
@@ -83,21 +101,19 @@ const Login = () => {
               onClick={handleSignUp}
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:transition-all hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-             Sign Up
+              Sign Up
             </button>
           </div>
           <button
-          onClick={handleBack}
-          className="text-white text-sm font-medium m-4 focus:outline-none transition-transform hover:scale-105"
-        >
-          Back to Home
-        </button>
+            onClick={handleBack}
+            className="text-white text-center text-sm font-medium m-4 focus:outline-none transition-transform hover:scale-105"
+          >
+            Back to Home
+          </button>
         </form>
-      </div>
-      <div>
-          
-        </div>
+      </motion.div>
     </div>
+    </motion.div>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const BlogDetails = () => {
   const [blogDetails, setBlogDetails] = useState({});
@@ -27,7 +28,19 @@ const BlogDetails = () => {
   }, [blogsId]);
 
   return (
-    <div className="px-4 py-8 bg-red-950 text-white">
+    <motion.div
+      className="relative h-screen flex items-center justify-center"
+      style={{
+        backgroundImage: 'url("../../assets/blogDetails2.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'left',
+        filter: 'brightness(0.9)',
+      }}
+      initial={{width:0}}
+      animate={{width:"100%"}}
+      exit={{ x: window.innerWidth, transition:{duration:0.1}}}
+    >
+    <div className="px-4 py-8 text-white">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-4xl font-bold mb-4">{blogDetails.title}</h1>
         <div className="flex items-center space-x-2 mb-4">
@@ -49,6 +62,7 @@ const BlogDetails = () => {
         </div>
       </div>
     </div>
+    </motion.div>
   );
 };
 

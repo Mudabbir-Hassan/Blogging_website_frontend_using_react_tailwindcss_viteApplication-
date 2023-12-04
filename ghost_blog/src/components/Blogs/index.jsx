@@ -35,7 +35,7 @@ export default function Blogs () {
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
-    <div
+    <motion.div
       className="relative flex items-center justify-center"
       style={{
         backgroundImage: 'url("../../assets/aboutUs.jpg")',
@@ -43,25 +43,32 @@ export default function Blogs () {
         backgroundPosition: 'center',
         filter: 'brightness(0.9)',
       }}
+      initial={{width:0}}
+      animate={{width:"100%"}}
+      exit={{ x: window.innerWidth, transition:{duration:0.5}}}
     >
       <div className="container mx-auto mt-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {currentItems.map(item => (
             <NavLink to={`blogs/${item.id}`}>
-            <div 
+            <motion.div layout
               key={item.id}
-              className="bg-white rounded-lg overflow-hidden shadow-md transform transition-transform hover:scale-105 hover:shadow-lg"
+              className="bg-white rounded-lg overflow-hidden shadow-md transition-all transform duration-500 hover:scale-110 hover:shadow-lg"
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{opacity:0 , y:100}}
+              whileHover={{ scale: 1.1, boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)" }}
             >
               <img
                 src={item.image}
                 alt={`blog image ${item.id}`}
-                className="w-full h-90 object-cover object-center"
+                className="w-full h-100 object-cover object-center "
               />
               <div className="p-4">
-                <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
+                <h2 className="text-xl font-semibold mb-2 ">{item.title}</h2>
                 <p className="text-gray-700">{item.description}</p>
               </div>
-            </div>
+            </motion.div >
             </NavLink>
           ))}
         </div>
@@ -71,7 +78,7 @@ export default function Blogs () {
           {Array.from({ length: Math.ceil(data.length / ITEMS_PER_PAGE) }, (_, index) => (
             <button
               key={index + 1}
-              className={`px-4 py-2 mx-2 bg-gray-800 text-white rounded-full ${
+              className={`px-4 py-2 mx-2 bg-red-950 text-white rounded-full ${
                 currentPage === index + 1 ? 'bg-blue-500' : 'hover:bg-blue-400'
               }`}
               onClick={() => paginate(index + 1)}
@@ -81,6 +88,6 @@ export default function Blogs () {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

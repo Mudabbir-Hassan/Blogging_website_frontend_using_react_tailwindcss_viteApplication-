@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <>
     <Outlet / >
-    <footer className="bg-black text-white py-8">
+    <footer className="bg-black bg-opacity-95 text-white py-8">
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <p className="text-lg font-semibold">Ghost</p>

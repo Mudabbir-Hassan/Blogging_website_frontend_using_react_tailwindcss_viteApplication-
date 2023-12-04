@@ -11,7 +11,7 @@ const NavBar = () => {
   return (
     <>
       <nav className="bg-black text-white p-4 flex flex-col md:flex-row justify-between items-center">
-        {/* Logo */}
+      
         <NavLink to="/">
           <div className="flex items-center">
             <img
@@ -19,11 +19,11 @@ const NavBar = () => {
               alt="Logo"
               className="w-12 h-12 mr-2"
             />
-            <span className="font-semibold text-lg">GHOST</span>
+            <span className="font-semibold text-lg">GHOSTING</span>
           </div>
         </NavLink>
 
-        {/* Menu Icon (Visible on small screens) */}
+       
         <button
           className="md:hidden text-white"
           onClick={toggleMenu}
@@ -49,12 +49,15 @@ const NavBar = () => {
           <li className="hover:text-gray-300 transition duration-300">
             <NavLink to="/" onClick={toggleMenu}>Home</NavLink>
           </li>
-          <li className="hover:text-gray-300 transition duration-300">
-            <NavLink to="/about" onClick={toggleMenu}>About</NavLink>
-          </li>
+
           <li className="hover:text-gray-300 transition duration-300">
             <NavLink to="/blog" onClick={toggleMenu}>Blog</NavLink>
           </li>
+
+          <li className="hover:text-gray-300 transition duration-300">
+            <NavLink to="/about" onClick={toggleMenu}>About</NavLink>
+          </li>
+          
           <li className="hover:text-gray-300 transition duration-300">
             <NavLink to="/contact-us" onClick={toggleMenu}>Contact Us</NavLink>
           </li>

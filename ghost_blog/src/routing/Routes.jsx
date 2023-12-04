@@ -1,5 +1,6 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route , useLocation  } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 import Home from "../pages/Home";
 import Layout from "../components/Layout";
@@ -16,8 +17,11 @@ import Signup from "../pages/Sign_up";
 import Errorpage from "../pages/Page_not_found";
 
 export default function MyRoutes() {
+  const location = useLocation();
   return (
-    <Routes>
+    <div className="bg-black">
+    <AnimatePresence>
+    <Routes location={location} key={location.pathname}>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
@@ -27,7 +31,7 @@ export default function MyRoutes() {
           <Route path="create" element={<Create />} />
           <Route path='blogs/:blogsId' element={<BlogDetails />} />
         </Route>
-
+  
         <Route path="contact-us" element={<Contact />} />
       </Route>
 
@@ -35,5 +39,8 @@ export default function MyRoutes() {
       <Route path="sign-up" element={<Signup />} />
       <Route path="errorpage" element={<Errorpage />} />
     </Routes>
+    </AnimatePresence>
+    </div>
+
   );
 }

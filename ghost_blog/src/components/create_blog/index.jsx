@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function index() {
   const [title, setTitle] = useState("");
@@ -11,7 +12,7 @@ export default function index() {
   }
 
   return (
-    <div
+    <motion.div
       className="relative h-screen flex items-center justify-center"
       style={{
         backgroundImage: 'url("../../assets/createBlog.jpg")',
@@ -19,8 +20,16 @@ export default function index() {
         backgroundPosition: 'center',
         filter: 'brightness(0.9)',
       }}
+      initial={{width:0}}
+      animate={{width:"100%"}}
+      exit={{ x: window.innerWidth, transition:{duration:0.1}}}
     >
-    <div className="flex  justify-center h-screen">
+    <motion.div className="flex  justify-center h-screen"
+    initial={{ opacity: 0, y: -100 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: 100 }}
+    transition={{ duration: 1 }}
+    >
       <div className="w-full max-w-md p-6 rounded-md">
         <div className="mb-8">
           <label className="block text-lg font-semibold text-white mb-2">
@@ -36,7 +45,7 @@ export default function index() {
 
         <div className="mb-8">
   <h2 className="text-lg font-semibold text-white mb-2">Add Image:</h2>
-  <label className="flex items-center justify-center w-full h-12 px-4 bg-black bg-opacity-20 text-white rounded-md cursor-pointer transition-all  hover:bg-white hover:text-black hover:font-semibold">
+  <label className="flex items-center justify-center w-full h-12 px-4 bg-red-950 text-white rounded-md cursor-pointer transition-all  hover:bg-blue-400 hover:text-black hover:font-semibold">
     <span className="mr-2 ">Choose a file</span>
     <input
       type="file"
@@ -54,17 +63,17 @@ export default function index() {
             Description:
           </label>
           <textarea
-            className="w-full px-4 py-12 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
             placeholder="Enter Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
         <div className="mt-3 flex justify-center">
-        <button className='flex items-center justify-center w-full h-12 px-4 bg-black bg-opacity-20 text-white rounded-md cursor-pointer transition-all hover:bg-white hover:text-black hover:font-semibold'>Post  </button>
+        <button className="flex items-center justify-center w-full h-12 px-4 bg-red-950 text-white rounded-md cursor-pointer transition-all  hover:bg-blue-400 hover:text-black hover:font-semibold">Post  </button>
         </div>
       </div>
-    </div>
-    </div>
+    </motion.div>
+    </motion.div>
   );
 }
