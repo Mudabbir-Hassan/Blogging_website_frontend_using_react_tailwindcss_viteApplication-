@@ -25,24 +25,22 @@ const About = () => {
         exit={{ y: -100, transition:{duration:0.2}}}
         >
           <h1 className="text-4xl font-bold mb-6 text-white">About Us</h1>
-          <p className="text-lg text-white mb-7">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-            quis optio quas sapiente vel a nostrum blanditiis, maiores explicabo
-            hic quos sit fugit, mollitia illo in quaerat sunt velit commodi?
-            Error aperiam ipsam eos? Rerum non exercitationem praesentium
-            impedit corporis?
+
+          <p className="text-lg text-white">
+          Welcome to our blogging community! We are a dynamic group of individuals brought together by our shared passion for blogging, creativity, technology, etc. As a diverse team of developers, designers. we come together to create content that inspires, informs, entertains our readers.</p>
+
+          <p className="text-lg text-white font-bold mt-5">          
+          Our journey began with a simple idea: to build a space where individuals with a love for
+           Lifestyle and Inspiration, Creativity and Arts Hub, Tech and Gadgets, Green Living and Sustainability, Pop Culture and Entertainment, Parenting and Family Stories, Food Adventures and Recipes, Career Development and Work Life, Science and Curiosity, Personal Journeys and Reflections, Travel Exploration & Home and Décor etc.
           </p>
 
-          <h2 className="text-2xl font-bold mb-4 text-white">Our Mission</h2>
+          <h2 className="text-2xl font-bold mb-4 mt-7 text-white">Our Mission</h2>
           <div className="text-white text-lg">
-            <p className="mb-2">Lorem ipsum dolor sit amet,</p>
-            <p className="mb-2">
-              {" "}
-              consectetur adipiscing elit. Nulla facilisi. Sed sit amet lacinia
-              mauris. Aliquam sed fermentum nisi.
-            </p>
-            <p className="mb-8">Integer id arcu vel arcu rutrum varius.</p>
+            <p className="mb-2">Empowering through connection, inspiring creativity, celebrating diversity, and encouraging thoughtful dialogue — our mission is to create a vibrant community that fosters growth, innovation, and positive impact.</p>
+  
           </div>
+
+
           <h2 className="flex justify-center text-2xl font-bold mb-12 text-white">
             Our Team
           </h2>
@@ -78,7 +76,7 @@ const About = () => {
                 className="mb-4 h-60 object-contain rounded-md"
               />
               <h3 className="text-xl font-semibold mb-2">Mateen Bhatti</h3>
-              <p>FrontEnd Developer</p>
+              <p>UI/UX Designer</p>
             </div>
 
             <div className="bg-red-950 opacity-90 p-6 rounded-lg shadow-md flex flex-col justify-center bg-opacity-70 mb-4 transition-all hover:scale-110">
@@ -88,7 +86,7 @@ const About = () => {
                 className="mb-4 h-60 object-contain rounded-md"
               />
               <h3 className="text-xl font-semibold mb-2">Ali Raza</h3>
-              <p>BackEnd Developer</p>
+              <p>Content Writer</p>
             </div>
           </motion.div>
         </motion.div>

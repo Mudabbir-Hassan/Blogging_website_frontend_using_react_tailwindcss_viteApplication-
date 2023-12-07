@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink , useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import UserAuthContext from '../../components/context/user/userAuthContext';
 
 const NavBar = () => {
   const [menuVisible, setMenuVisible] = useState(false);
+  const { isloggedin, setIsLoggedIn } = useContext(UserAuthContext);
+  const navigate = useNavigate();
+  
+
+
+  const handleLogin = () => {
+    setIsLoggedIn(false); 
+    navigate('/');
+  };
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
@@ -66,11 +77,7 @@ const NavBar = () => {
         {/* Login/Logout (Hidden on small screens) */}
         <div className={`mt-4 md:mt-0 hidden md:block ${menuVisible ? 'block' : 'hidden'}`}>
           <span className="hover:text-blue-300 transition duration-300">
-            <NavLink to="log-in" onClick={toggleMenu}>Login</NavLink>
-          </span>
-          <span className="mx-2">|</span>
-          <span className="hover:text-red-500 transition duration-300">
-            <NavLink to="/" onClick={toggleMenu}>Logout</NavLink>
+            <NavLink to="log-in" onClick={toggleMenu}>{(!isloggedin) ? "Sign-In" : "Sign-Out"}</NavLink>
           </span>
         </div>
       </nav>

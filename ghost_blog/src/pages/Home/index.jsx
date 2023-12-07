@@ -40,7 +40,7 @@ const HomePage = () => {
         animate={{ y: 0, transition:{duration:1} }}
         exit={{ y: -100, transition:{duration:0.2}}}
           onClick={latestPostClickHandler}
-          className="bg-black opacity-50 p-8 rounded-md mb-4 transition-all hover:opacity-80"
+          className="cursor-pointer bg-black opacity-50 p-8 rounded-md mb-4 transition-all hover:opacity-80"
         >
           <h2 className="text-2xl font-semibold mb-4">Latest Posts</h2>
         </motion.div>
@@ -51,7 +51,7 @@ const HomePage = () => {
         exit={{ x: 100 }}
         transition={{ duration: 1.2 }}
           onClick={createBlogClickHandler}
-          className="bg-black opacity-50 p-8 rounded-md mb-4 transition-all hover:opacity-80"
+          className="cursor-pointer bg-black opacity-50 p-8 rounded-md mb-4 transition-all hover:opacity-80"
         >
           <h2 className="text-2xl font-semibold mb-4">Create Own Blog</h2>
           {/* Add your categories content here */}
@@ -63,7 +63,7 @@ const HomePage = () => {
         exit={{ y: -100 }}
         transition={{ duration: 1 }}
           onClick={aboutClickHandler}
-          className="bg-black opacity-50 p-8 rounded-md transition-all hover:opacity-80"
+          className="cursor-pointer bg-black opacity-50 p-8 rounded-md transition-all hover:opacity-80"
         >
           <h2 className="text-2xl text-white font-semibold mb-4">About Us</h2>
           {/* Add your about us content here */}

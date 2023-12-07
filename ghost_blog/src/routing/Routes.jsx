@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route , useLocation  } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import UserAuthState from "../components/context/user/userAuthState";
 
 import Home from "../pages/Home";
 import Layout from "../components/Layout";
@@ -21,6 +22,7 @@ export default function MyRoutes() {
   return (
     <div className="bg-black">
     <AnimatePresence>
+      <UserAuthState>
     <Routes location={location} key={location.pathname}>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
@@ -39,6 +41,7 @@ export default function MyRoutes() {
       <Route path="sign-up" element={<Signup />} />
       <Route path="errorpage" element={<Errorpage />} />
     </Routes>
+    </UserAuthState>
     </AnimatePresence>
     </div>
 

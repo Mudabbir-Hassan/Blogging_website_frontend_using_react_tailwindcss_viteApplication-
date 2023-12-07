@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export default function Blog() {
+
+  const [title , setTitle] = useState("BLOG PAGE");
   const navigate = useNavigate();
 
   const backClickHandler = () => {
+    setTitle("BLOGS");
     navigate("/blog");
   };
 
   const handleButtonClick = () => {
+    setTitle("CREATE BLOG");
     navigate("/blog/create");
   };
 
@@ -29,7 +33,7 @@ export default function Blog() {
         </button>
 
         <div className="px-4 pt-20 pb-9 text-white flex flex-col items-center justify-center">
-          <h1 className="text-4xl font-bold mb-10">BLOG PAGE</h1>
+          <h1 className="text-4xl font-bold mb-10">{title}</h1>
           <button
             onClick={handleButtonClick}
             className="font-sans font-semibold p-2 bg-red-950 rounded-xl transition-all hover:scale-105 hover:bg-blue-400"

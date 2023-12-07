@@ -5,10 +5,19 @@ export default function index() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState();
+  const [validationMessage, setValidationMessage] = useState("");
 
   function handleChange(e) {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
+  }
+
+  function postBtnHandler (){
+    if((title==="")||(description===""||(!file))){
+      setValidationMessage("Fill All Details");
+    }
+    else
+    setValidationMessage("Posted");
   }
 
   return (
@@ -20,8 +29,8 @@ export default function index() {
         backgroundPosition: 'center',
         filter: 'brightness(0.9)',
       }}
-      initial={{width:0}}
-      animate={{width:"100%"}}
+      initial={{width:0, transition:{duration:0.1}}}
+      animate={{width:"100%", transition:{duration:2.5}}}
       exit={{ x: window.innerWidth, transition:{duration:0.1}}}
     >
     <motion.div className="flex  justify-center h-screen"
@@ -53,9 +62,17 @@ export default function index() {
       onChange={handleChange}
     />
   </label>
+
   {file && (
-    <img src={file} alt="Selected" className="mt-2 rounded-md" />
+      <motion.div className=" items-center mx-auto"
+      initial={{width:0, transition:{duration:0.1}}}
+      animate={{width:"50%", transition:{duration:2.5}}}
+      exit={{ x: window.innerWidth, transition:{duration:0.1}}}
+      >
+    <img src={file} alt="Selected" className="mt-5 rounded-md" />
+    </motion.div>
   )}
+  
 </div>
 
         <div>
@@ -70,8 +87,9 @@ export default function index() {
           />
         </div>
         <div className="mt-3 flex justify-center">
-        <button className="flex items-center justify-center w-full h-12 px-4 bg-red-950 text-white rounded-md cursor-pointer transition-all  hover:bg-blue-400 hover:text-black hover:font-semibold">Post  </button>
+        <button onClick={postBtnHandler} className="flex items-center justify-center w-full h-12 px-4 bg-red-950 text-white rounded-md cursor-pointer transition-all  hover:bg-blue-400 hover:text-black hover:font-semibold">Post  </button>
         </div>
+        <p className=" text-white mt-2 font-semibold">{validationMessage}</p>
       </div>
     </motion.div>
     </motion.div>
