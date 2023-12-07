@@ -1,10 +1,10 @@
-// SignUp.js
-import React from 'react';
+import React, {useContext} from 'react';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-
+import UserAuthContext from '../../components/context/user/userAuthContext';
 const SignUp = () => {
+  const { isloggedin, setIsLoggedIn } = useContext(UserAuthContext);
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -22,6 +22,8 @@ const SignUp = () => {
       confirmPassword: '',
     },
     onSubmit: values => {
+      setIsLoggedIn(true);
+      navigate('/');
       console.log('Form submitted with values:', values);
     },
   });

@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route , useLocation  } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import UserAuthState from "../components/context/user/userAuthState";
+import Protected from "../pages/Protected/protected";
 
 import Home from "../pages/Home";
 import Layout from "../components/Layout";
@@ -29,9 +30,9 @@ export default function MyRoutes() {
         <Route path="about" element={<About />} />
 
         <Route path="blog" element={<Blog />}>
-          <Route index element={<Blogs />} />
-          <Route path="create" element={<Create />} />
-          <Route path='blogs/:blogsId' element={<BlogDetails />} />
+          <Route index element={<Protected Component = {Blogs} />} />
+          <Route path="create" element={<Protected Component = {Create} />} />
+          <Route path='blogs/:blogsId' element={<Protected Component = {BlogDetails} />} />
         </Route>
   
         <Route path="contact-us" element={<Contact />} />

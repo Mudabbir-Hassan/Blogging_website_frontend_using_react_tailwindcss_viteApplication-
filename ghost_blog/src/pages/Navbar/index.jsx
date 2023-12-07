@@ -77,7 +77,7 @@ const NavBar = () => {
         {/* Login/Logout (Hidden on small screens) */}
         <div className={`mt-4 md:mt-0 hidden md:block ${menuVisible ? 'block' : 'hidden'}`}>
           <span className="hover:text-blue-300 transition duration-300">
-            <NavLink to="log-in" onClick={toggleMenu}>{(!isloggedin) ? "Sign-In" : "Sign-Out"}</NavLink>
+            <NavLink to={(!isloggedin) ? "/log-in" : "/"}  onClick={handleLogin}>{(!isloggedin) ? "Sign-In" : "Sign-Out"}</NavLink>
           </span>
         </div>
       </nav>
